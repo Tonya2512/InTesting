@@ -1,4 +1,4 @@
-package ru.netology.web;
+package ru.netology.webselenium;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
@@ -18,8 +18,8 @@ public class PositiveTesting {
 
     @BeforeAll
     public static void setupAll() {
-        WebDriverManager.chromedriver().setup();
-    }
+            WebDriverManager.chromedriver().setup();
+}
 
     @BeforeEach
     public void beforeEach() {
@@ -28,7 +28,7 @@ public class PositiveTesting {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver.get("http://localhost:9999");
+        driver.get("http://localhost:9999/");
     }
 
     @AfterEach
@@ -39,7 +39,7 @@ public class PositiveTesting {
 
     @Test
     public void SuccessFillForm() {
-        driver.findElement(By.cssSelector("[data-test-id='name' input")).sendKeys ("Панкратов-Черный Демид");
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys ("Панкратов-Черный Демид");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys ("+79018757564");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button.button")).click();
