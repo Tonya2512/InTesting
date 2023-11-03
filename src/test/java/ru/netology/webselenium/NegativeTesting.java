@@ -64,6 +64,15 @@ public class NegativeTesting {
         assertEquals("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.",
                 driver.findElement(By.cssSelector("[data-test-id=phone].input_invalid .input__sub")).getText().trim());
     }
+
+    @Test
+    public void EmptyPhone() {
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys ("Панкратов-Черный Демид");
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
+        driver.findElement(By.cssSelector("button.button")).click();
+        assertEquals("Поле обязательно для заполнения",
+                driver.findElement(By.cssSelector("[data-test-id=phone].input_invalid .input__sub")).getText().trim());
+    }
     @Test
     public void FailedByUncheckedCheckbox() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys ("Панкратов-Черный Демид");
