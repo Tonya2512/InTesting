@@ -17,7 +17,7 @@ public class NegativeTesting {
     private WebDriver driver;
 
     @BeforeAll
-    public static void setupAll() {
+    public static void setup() {
         WebDriverManager.chromedriver().setup();
     }
 

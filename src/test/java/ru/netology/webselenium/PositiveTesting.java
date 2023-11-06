@@ -17,8 +17,8 @@ public class PositiveTesting {
 
 
     @BeforeAll
-    public static void setupAll() {
-            WebDriverManager.chromedriver().setup();
+    public static void setup() {
+        WebDriverManager.chromedriver().setup();
 }
 
     @BeforeEach
