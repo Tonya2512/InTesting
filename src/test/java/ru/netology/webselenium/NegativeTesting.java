@@ -17,7 +17,7 @@ public class NegativeTesting {
     private WebDriver driver;
 
     @BeforeAll
-    public static void setup() {
+    public static void setupAll() {
         WebDriverManager.chromedriver().setup();
     }
 
@@ -38,7 +38,7 @@ public class NegativeTesting {
     }
 
     @Test
-    public void FailedByIncorrectName() {
+    public void incorrectName() {
         driver.findElement(By.xpath("//span[@data-test-id='name']//input")).sendKeys ("Oleg");
         driver.findElement(By.xpath("//span[@data-test-id='phone']//input")).sendKeys ("+79018757564");
         driver.findElement(By.xpath("//label[@data-test-id='agreement']")).click();
@@ -48,7 +48,7 @@ public class NegativeTesting {
                         .getText().trim());
     }
     @Test
-    public void FailedByEmptyName() {
+    public void emptyName() {
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys ("+79018757564");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("button.button")).click();
@@ -56,7 +56,7 @@ public class NegativeTesting {
                 driver.findElement(By.cssSelector("[data-test-id=name].input_invalid .input__sub")).getText().trim());
     }
     @Test
-    public void FailedByIncorrectPhone() {
+    public void incorrectPhone() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys ("Панкратов-Черный Демид");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys ("+7901875756498767");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -66,7 +66,7 @@ public class NegativeTesting {
     }
 
     @Test
-    public void EmptyPhone() {
+    public void emptyPhone() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys ("Панкратов-Черный Демид");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("button.button")).click();
@@ -74,7 +74,7 @@ public class NegativeTesting {
                 driver.findElement(By.cssSelector("[data-test-id=phone].input_invalid .input__sub")).getText().trim());
     }
     @Test
-    public void FailedByUncheckedCheckbox() {
+    public void uncheckedCheckbox() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys ("Панкратов-Черный Демид");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys ("+79018757564");
         driver.findElement(By.cssSelector("button.button")).click();

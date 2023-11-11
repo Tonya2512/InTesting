@@ -17,7 +17,7 @@ public class PositiveTesting {
 
 
     @BeforeAll
-    public static void setup() {
+    public static void setupAll() {
         WebDriverManager.chromedriver().setup();
 }
 
@@ -38,7 +38,7 @@ public class PositiveTesting {
     }
 
     @Test
-    public void SuccessFillForm() {
+    public void successFillForm() {
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys ("Панкратов-Черный Демид");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys ("+79018757564");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
